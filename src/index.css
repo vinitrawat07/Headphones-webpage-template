@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* Cyber-Luxe Theme Configuration */
+:root {
+  /* Colors */
+  --color-obsidian: #0A0A0A;
+  --color-slate: #2D2D2D;
+  --color-slate-light: #3a3a3a;
+  --color-amber: #FFBF00;
+  --color-amber-dim: rgba(255, 191, 0, 0.3);
+  --color-amber-glow: rgba(255, 191, 0, 0.5);
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Easing - Luxury machinery feel */
+  --ease-luxury: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-machinery: cubic-bezier(0.7, 0, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-obsidian);
+  color: #ffffff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-obsidian);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-amber);
+}
+
+/* Amber Glow Effect */
+.amber-glow {
+  box-shadow:
+    0 0 20px rgba(255, 191, 0, 0.3),
+    0 0 40px rgba(255, 191, 0, 0.15);
+}
+
+.amber-glow-text {
+  text-shadow: 0 0 40px rgba(255, 191, 0, 0.5);
+}
+
+/* Brushed Metal Texture */
+.brushed-slate {
+  background:
+    linear-gradient(135deg, #2D2D2D 0%, #1a1a1a 100%),
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px);
+}
+
+/* Carbon Fiber Pattern */
+.carbon-fiber {
+  background:
+    repeating-linear-gradient(45deg, #1a1a1a 0px, #1a1a1a 2px, #0d0d0d 2px, #0d0d0d 4px),
+    linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+}
+
+/* Anodized Aluminum Accent */
+.aluminum-accent {
+  background: linear-gradient(180deg, #3a3a3a 0%, #1f1f1f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth scroll container */
+.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 2.5rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+}
