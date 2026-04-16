@@ -15,7 +15,7 @@
   "dependencies": {
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.0",
-    "@studio-freight/lenis": "^1.0.42",
+    "lenis": "^1.2.10",
     "@types/three": "^0.183.1",
     "autoprefixer": "^10.5.0",
     "framer-motion": "^12.38.0",
