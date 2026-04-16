@@ -1,19 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
-import Lenis from '@studio-freight/lenis'
+import Lenis from 'lenis'
 import './App.css'
 
 // Animation variants from skill
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, ease: [0.32, 0.72, 0, 1] }
+  transition: { duration: 0.8, ease: [0.32, 0.72, 0, 1] as const }
 }
 
 const fadeInUpBlur = {
   initial: { opacity: 0, y: 40, filter: "blur(10px)" },
   animate: { opacity: 1, y: 0, filter: "blur(0px)" },
-  transition: { duration: 0.8, ease: [0.32, 0.72, 0, 1] }
+  transition: { duration: 0.8, ease: [0.32, 0.72, 0, 1] as const }
 }
 
 const staggerContainer = {
@@ -24,7 +24,7 @@ const staggerContainer = {
 
 const staggerChild = {
   initial: { opacity: 0, y: 24 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.32, 0.72, 0, 1] } }
+  animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.32, 0.72, 0, 1] as const } }
 }
 
 // Specs data
@@ -66,7 +66,6 @@ function App() {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
       smooth: true,
     })
 
@@ -153,7 +152,6 @@ function App() {
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 1, delay: 0.5, ease: [0.32, 0.72, 0, 1] }}
           viewport={{ once: true }}
-          fill="forwards"
         >
           <motion.h1
             viewport={{ once: true }}
@@ -178,7 +176,6 @@ function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            fill="forwards"
           >
             SonicCore: Engineering the Silence
           </motion.p>
@@ -190,7 +187,6 @@ function App() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1 }}
-            fill="forwards"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -212,7 +208,6 @@ function App() {
           animate={{ opacity: 1, y: 12 }}
           transition={{ duration: 1, delay: 1.5, ease: [0.32, 0.72, 0, 1] }}
           viewport={{ once: true }}
-          fill="forwards"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M12 5v14M19 12l-7 7-7-7" />
@@ -261,7 +256,7 @@ function App() {
               margin: '0 auto',
             }}
           >
-            {specs.map((spec, index) => (
+            {specs.map((spec) => (
               <motion.div
                 key={spec.label}
                 variants={staggerChild}
@@ -355,7 +350,6 @@ function App() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  fill="forwards"
                 />
               </motion.div>
             ))}
