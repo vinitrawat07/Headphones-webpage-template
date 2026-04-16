@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion'
+import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import Lenis from '@studio-freight/lenis'
 import './App.css'
 
@@ -60,10 +60,6 @@ function App() {
   const specsInView = useInView(specsRef, { once: true, margin: "-100px" })
   const galleryInView = useInView(galleryRef, { once: true, margin: "-100px" })
 
-  // Parallax for gallery
-  const galleryY1 = useTransform(scrollYProgress, [0.5, 0.8], [0, -50])
-  const galleryY2 = useTransform(scrollYProgress, [0.5, 0.8], [0, -30])
-  const galleryY3 = useTransform(scrollYProgress, [0.5, 0.8], [0, -70])
 
   // Initialize smooth scroll
   useEffect(() => {
